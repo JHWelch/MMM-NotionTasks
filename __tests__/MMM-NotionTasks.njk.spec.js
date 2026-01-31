@@ -8,7 +8,7 @@ let template;
 describe('loading', () => {
   beforeEach(() => {
     data = { loading: true };
-    template = nunjucks.render('MMM-Notion-Tasks.njk', data);
+    template = nunjucks.render('MMM-NotionTasks.njk', data);
   });
 
   it('shows loading', () => {
@@ -34,7 +34,7 @@ describe('with task data', () => {
         isPastDue: false,
       },
     ] };
-    template = nunjucks.render('MMM-Notion-Tasks.njk', data);
+    template = nunjucks.render('MMM-NotionTasks.njk', data);
   });
 
   it('has title', () => {
@@ -52,7 +52,7 @@ describe('with task data', () => {
 describe('no task data', () => {
   beforeEach(() => {
     data = { loading: false, tasks: [] };
-    template = nunjucks.render('MMM-Notion-Tasks.njk', data);
+    template = nunjucks.render('MMM-NotionTasks.njk', data);
   });
 
   it('shows no tasks message', () => {
@@ -69,7 +69,7 @@ describe('no past due task', () => {
       assignee: 'User 1',
       isPastDue: false,
     }] };
-    template = nunjucks.render('MMM-Notion-Tasks.njk', data);
+    template = nunjucks.render('MMM-NotionTasks.njk', data);
   });
 
   it('does not show icon', () => {
@@ -86,7 +86,7 @@ describe('past due task', () => {
       assignee: 'User 1',
       isPastDue: true,
     }] };
-    template = nunjucks.render('MMM-Notion-Tasks.njk', data);
+    template = nunjucks.render('MMM-NotionTasks.njk', data);
   });
 
   it('shows icon', () => {

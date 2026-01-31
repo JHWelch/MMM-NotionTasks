@@ -1,5 +1,5 @@
 /* Magic Mirror
- * Node Helper: MMM-Notion-Tasks
+ * Node Helper: MMM-NotionTasks
  *
  * By Jordan Welch
  * MIT Licensed.
@@ -11,7 +11,7 @@ const { Client } = require('@notionhq/client');
 
 module.exports = NodeHelper.create({
   socketNotificationReceived (notification, payload) {
-    if (notification !== 'MMM-Notion-Tasks-FETCH') {
+    if (notification !== 'MMM-NotionTasks-FETCH') {
       return;
     }
 
@@ -62,6 +62,6 @@ module.exports = NodeHelper.create({
       isPastDue: page.properties[dueDateField].date?.start < today,
     }));
 
-    this.sendSocketNotification('MMM-Notion-Tasks-DATA', { tasks });
+    this.sendSocketNotification('MMM-NotionTasks-DATA', { tasks });
   },
 });

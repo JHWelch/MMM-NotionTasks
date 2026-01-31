@@ -2,13 +2,13 @@
 /* global moment */
 
 /* Magic Mirror
- * Module: MMM-Notion-Tasks
+ * Module: MMM-NotionTasks
  *
  * By Jordan Welch
  * MIT Licensed.
  */
 
-Module.register('MMM-Notion-Tasks', {
+Module.register('MMM-NotionTasks', {
   defaults: {
     updateInterval: 60000,
     assigneeField: 'Assignee',
@@ -36,7 +36,7 @@ Module.register('MMM-Notion-Tasks', {
   },
 
   getData () {
-    this.sendSocketNotification('MMM-Notion-Tasks-FETCH', {
+    this.sendSocketNotification('MMM-NotionTasks-FETCH', {
       notionToken: this.config.notionToken,
       dataSourceId: this.config.dataSourceId,
       assigneeField: this.config.assigneeField,
@@ -49,7 +49,7 @@ Module.register('MMM-Notion-Tasks', {
   },
 
   getTemplate () {
-    return 'MMM-Notion-Tasks.njk';
+    return 'MMM-NotionTasks.njk';
   },
 
   getTemplateData () {
@@ -69,7 +69,7 @@ Module.register('MMM-Notion-Tasks', {
   getStyles () {
     return [
       'font-awesome.css',
-      'MMM-Notion-Tasks.css',
+      'MMM-NotionTasks.css',
     ];
   },
 
@@ -81,7 +81,7 @@ Module.register('MMM-Notion-Tasks', {
   },
 
   socketNotificationReceived (notification, payload) {
-    if (notification !== 'MMM-Notion-Tasks-DATA') {
+    if (notification !== 'MMM-NotionTasks-DATA') {
       return;
     }
 

@@ -3,13 +3,13 @@
 require('../__mocks__/Module');
 require('../__mocks__/globalLogger');
 
-const name = 'MMM-Notion-Tasks';
+const name = 'MMM-NotionTasks';
 
 let MMMNotionTasks;
 
 beforeEach(() => {
   jest.resetModules();
-  require('../MMM-Notion-Tasks');
+  require('../MMM-NotionTasks');
 
   MMMNotionTasks = global.Module.create(name);
   MMMNotionTasks.setData({ name, identifier: `Module_1_${name}` });
@@ -67,14 +67,14 @@ describe('start', () => {
   it('logs start of module', () => {
     MMMNotionTasks.start();
 
-    expect(global.Log.info).toHaveBeenCalledWith('Starting module: MMM-Notion-Tasks');
+    expect(global.Log.info).toHaveBeenCalledWith('Starting module: MMM-NotionTasks');
   });
 
   it('requests data from node_helper with config variables', () => {
     MMMNotionTasks.start();
 
     expect(MMMNotionTasks.sendSocketNotification)
-      .toHaveBeenCalledWith('MMM-Notion-Tasks-FETCH', configObject);
+      .toHaveBeenCalledWith('MMM-NotionTasks-FETCH', configObject);
   });
 
   test('interval requests data from node_helper', () => {
@@ -83,7 +83,7 @@ describe('start', () => {
 
     expect(MMMNotionTasks.sendSocketNotification).toHaveBeenCalledTimes(2);
     expect(MMMNotionTasks.sendSocketNotification)
-      .toHaveBeenCalledWith('MMM-Notion-Tasks-FETCH', configObject);
+      .toHaveBeenCalledWith('MMM-NotionTasks-FETCH', configObject);
   });
 
   test('interval set starts with default value', () => {
@@ -104,7 +104,7 @@ describe('start', () => {
 
 describe('getTemplate', () => {
   it('returns template path', () => {
-    expect(MMMNotionTasks.getTemplate()).toBe('MMM-Notion-Tasks.njk');
+    expect(MMMNotionTasks.getTemplate()).toBe('MMM-NotionTasks.njk');
   });
 });
 
@@ -165,7 +165,7 @@ describe('getStyles', () => {
   it('returns styles path', () => {
     expect(MMMNotionTasks.getStyles()).toEqual([
       'font-awesome.css',
-      'MMM-Notion-Tasks.css',
+      'MMM-NotionTasks.css',
     ]);
   });
 });
@@ -190,29 +190,29 @@ describe('socketNotificationReceived', () => {
     ],
   };
 
-  describe('notification is MMM-Notion-Tasks-DATA', () => {
+  describe('notification is MMM-NotionTasks-DATA', () => {
     it('sets loading to false', () => {
-      MMMNotionTasks.socketNotificationReceived('MMM-Notion-Tasks-DATA', payload);
+      MMMNotionTasks.socketNotificationReceived('MMM-NotionTasks-DATA', payload);
 
       expect(MMMNotionTasks.loading).toBe(false);
     });
 
     it('sets task data', () => {
-      MMMNotionTasks.socketNotificationReceived('MMM-Notion-Tasks-DATA', payload);
+      MMMNotionTasks.socketNotificationReceived('MMM-NotionTasks-DATA', payload);
 
       expect(MMMNotionTasks.data.tasks).toBe(payload.tasks);
     });
 
     it('updates dom', () => {
-      MMMNotionTasks.socketNotificationReceived('MMM-Notion-Tasks-DATA', payload);
+      MMMNotionTasks.socketNotificationReceived('MMM-NotionTasks-DATA', payload);
 
       expect(MMMNotionTasks.updateDom).toHaveBeenCalled();
     });
   });
 
-  describe('notification is not MMM-Notion-Tasks-DATA', () => {
+  describe('notification is not MMM-NotionTasks-DATA', () => {
     it('does not set data', () => {
-      MMMNotionTasks.socketNotificationReceived('NOT-MMM-Notion-Tasks-DATA', payload);
+      MMMNotionTasks.socketNotificationReceived('NOT-MMM-NotionTasks-DATA', payload);
 
       expect(MMMNotionTasks.data.stops).toEqual(undefined);
     });

@@ -1,4 +1,4 @@
-# MMM-Notion-Tasks
+# MMM-NotionTasks
 
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 
@@ -11,7 +11,7 @@ This module displays a [Notion Task Database](https://www.notion.com/help/guides
 In ~/MagicMirror/modules
 
 ```sh
-git clone https://github.com/JHWelch/MMM-Notion-Tasks.git
+git clone https://github.com/JHWelch/MMM-NotionTasks.git
 
 npm install --omit=dev
 ```
@@ -49,7 +49,7 @@ To use this module, add the following configuration block to the modules array i
 var config = {
   modules: [
     {
-      module: 'MMM-Notion-Tasks',
+      module: 'MMM-NotionTasks',
       position: "bottom_left",
       config: {
         dataSourceId: "a5141993-19c4-497b-8ad4-042b8bc2e5d0",

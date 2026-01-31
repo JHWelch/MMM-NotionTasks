@@ -4,19 +4,19 @@ let helper;
 
 beforeEach(() => {
   helper = require('../node_helper.js');
-  helper.setName('MMM-Notion-Tasks');
+  helper.setName('MMM-NotionTasks');
 });
 
 describe('socketNotificationReceived', () => {
-  describe('notification does not match MMM-Notion-Tasks-FETCH', () => {
+  describe('notification does not match MMM-NotionTasks-FETCH', () => {
     it('does nothing', () => {
-      helper.socketNotificationReceived('NOT-Notion-Tasks-FETCH', {});
+      helper.socketNotificationReceived('NOT-NotionTasks-FETCH', {});
 
       expect(helper.sendSocketNotification).not.toHaveBeenCalled();
     });
   });
 
-  describe('notification matches MMM-Notion-Tasks-FETCH', () => {
+  describe('notification matches MMM-NotionTasks-FETCH', () => {
     let query;
 
     describe('default arguments', () => {
@@ -63,9 +63,9 @@ describe('socketNotificationReceived', () => {
       });
 
       it('fetches tasks from Notion', async () => {
-        await helper.socketNotificationReceived('MMM-Notion-Tasks-FETCH', config);
+        await helper.socketNotificationReceived('MMM-NotionTasks-FETCH', config);
 
-        expect(helper.sendSocketNotification).toHaveBeenCalledWith('MMM-Notion-Tasks-DATA', {tasks: [
+        expect(helper.sendSocketNotification).toHaveBeenCalledWith('MMM-NotionTasks-DATA', {tasks: [
           {
             id: 'page-id',
             name: 'Task 1',
@@ -84,7 +84,7 @@ describe('socketNotificationReceived', () => {
       });
 
       it('calls notion with correct parameters', () => {
-        helper.socketNotificationReceived('MMM-Notion-Tasks-FETCH', config);
+        helper.socketNotificationReceived('MMM-NotionTasks-FETCH', config);
 
         expect(query).toHaveBeenCalledWith({
           data_source_id: 'data-source-id',
@@ -156,9 +156,9 @@ describe('socketNotificationReceived', () => {
       });
 
       it('fetches tasks from Notion', async () => {
-        await helper.socketNotificationReceived('MMM-Notion-Tasks-FETCH', config);
+        await helper.socketNotificationReceived('MMM-NotionTasks-FETCH', config);
 
-        expect(helper.sendSocketNotification).toHaveBeenCalledWith('MMM-Notion-Tasks-DATA', {tasks: [
+        expect(helper.sendSocketNotification).toHaveBeenCalledWith('MMM-NotionTasks-DATA', {tasks: [
           {
             id: 'page-id',
             name: 'Task 1',
@@ -177,7 +177,7 @@ describe('socketNotificationReceived', () => {
       });
 
       it('calls notion with correct parameters', () => {
-        helper.socketNotificationReceived('MMM-Notion-Tasks-FETCH', config);
+        helper.socketNotificationReceived('MMM-NotionTasks-FETCH', config);
 
         expect(query).toHaveBeenCalledWith({
           data_source_id: 'data-source-id',

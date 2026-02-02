@@ -1,6 +1,6 @@
 # MMM-NotionTasks
 
-This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
+This is a module for the [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror/).
 
 This module displays a [Notion Task Database](https://www.notion.com/help/guides/give-your-to-dos-a-home-with-task-databases).
 

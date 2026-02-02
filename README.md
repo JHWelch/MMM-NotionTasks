@@ -97,10 +97,10 @@ There is linting using ESLint
 
 ```sh
 # Run linting
-npm run lint
+node --run lint
 
 # Fix linting errors
-npm run fix
+node --run fix
 ```
 
 ## Inspiration

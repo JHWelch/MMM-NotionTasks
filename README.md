@@ -75,6 +75,27 @@ Notion [task databases require](https://www.notion.com/help/guides/give-your-to-
 
 `doneStatuses` must include all "Complete" statuses from your task database. They are filtered from the task list.
 
+## Update
+
+### Automatic Update
+
+Did you know MagicMirror² has a built-in module updater? Read more about it [here](https://docs.magicmirror.builders/modules/updatenotification.html#updates-array).
+
+Add the following to your `updates` array of `updatenotification` in `config/config.js`
+
+```js
+{ 'MMM-NotionTasks': 'git pull && npm install --omit=dev' },
+```
+
+### Manual Update
+
+In `~/MagicMirror/modules/MMM-NotionTasks`
+
+```sh
+git pull
+npm install --omit=dev
+```
+
 ## Development
 
 Install dev dependencies

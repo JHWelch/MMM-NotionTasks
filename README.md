@@ -43,21 +43,17 @@ npm install --omit=dev
 
 ## Using the module
 
-To use this module, add the following configuration block to the modules array in the `config/config.js` file:
+To use this module, add the following configuration block to the `modules` array in the `config/config.js` file:
 
 ```js
-var config = {
-  modules: [
-    {
-      module: 'MMM-NotionTasks',
-      position: "bottom_left",
-      config: {
-        dataSourceId: "a5141993-19c4-497b-8ad4-042b8bc2e5d0",
-        notionToken: "ntn_AdY9TfWZZVQlOtWbYlNvmFatvSDDSsnjcfquwhECPxjiIv",
-        // See below for optional configuration values
-      }
-    }
-  ]
+{
+  module: 'MMM-NotionTasks',
+  position: "bottom_left",
+  config: {
+    dataSourceId: "a5141993-19c4-497b-8ad4-042b8bc2e5d0",
+    notionToken: "ntn_AdY9TfWZZVQlOtWbYlNvmFatvSDDSsnjcfquwhECPxjiIv",
+    // See below for optional configuration values
+  }
 }
 ```
 

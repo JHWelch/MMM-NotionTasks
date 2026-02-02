@@ -1,6 +1,6 @@
 # MMM-NotionTasks
 
-This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
+This is a module for the [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror/).
 
 This module displays a [Notion Task Database](https://www.notion.com/help/guides/give-your-to-dos-a-home-with-task-databases).
 
@@ -43,21 +43,17 @@ npm install --omit=dev
 
 ## Using the module
 
-To use this module, add the following configuration block to the modules array in the `config/config.js` file:
+To use this module, add the following configuration block to the `modules` array in the `config/config.js` file:
 
 ```js
-var config = {
-  modules: [
-    {
-      module: 'MMM-NotionTasks',
-      position: "bottom_left",
-      config: {
-        dataSourceId: "a5141993-19c4-497b-8ad4-042b8bc2e5d0",
-        notionToken: "ntn_AdY9TfWZZVQlOtWbYlNvmFatvSDDSsnjcfquwhECPxjiIv",
-        // See below for optional configuration values
-      }
-    }
-  ]
+{
+  module: 'MMM-NotionTasks',
+  position: "bottom_left",
+  config: {
+    dataSourceId: "a5141993-19c4-497b-8ad4-042b8bc2e5d0",
+    notionToken: "ntn_AdY9TfWZZVQlOtWbYlNvmFatvSDDSsnjcfquwhECPxjiIv",
+    // See below for optional configuration values
+  }
 }
 ```
 
@@ -79,6 +75,27 @@ Notion [task databases require](https://www.notion.com/help/guides/give-your-to-
 
 `doneStatuses` must include all "Complete" statuses from your task database. They are filtered from the task list.
 
+## Update
+
+### Automatic Update
+
+Did you know MagicMirror² has a built-in module updater? Read more about it [here](https://docs.magicmirror.builders/modules/updatenotification.html#updates-array).
+
+Add the following to your `updates` array of `updatenotification` in `config/config.js`
+
+```js
+{ 'MMM-NotionTasks': 'git pull && npm install --omit=dev' },
+```
+
+### Manual Update
+
+In `~/MagicMirror/modules/MMM-NotionTasks`
+
+```sh
+git pull
+npm install --omit=dev
+```
+
 ## Development
 
 Install dev dependencies
@@ -92,7 +109,7 @@ npm install
 There is a test suite using Jest.
 
 ```sh
-npm test
+node --run test
 ```
 
 ### Linting
@@ -101,10 +118,10 @@ There is linting using ESLint
 
 ```sh
 # Run linting
-npm run lint
+node --run lint
 
 # Fix linting errors
-npm run fix
+node --run fix
 ```
 
 ## Inspiration

@@ -12,7 +12,7 @@ In ~/MagicMirror/modules
 
 ```sh
 git clone https://github.com/JHWelch/MMM-NotionTasks.git
-
+cd MMM-NotionTasks
 npm install --omit=dev
 ```
 
